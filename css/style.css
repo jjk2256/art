@@ -1667,7 +1667,7 @@ figure.dotted-bg {
 
 /* Custom spacing for navigation - index page only */
 #index-section.untree_co-section {
-  padding-top: 8rem !important;
+  padding-top: 25px !important;
 }
 
 /* Bold text on hover for navigation buttons */
@@ -1933,12 +1933,18 @@ figure.dotted-bg {
 
 /* Circular image grid */
 .item.photography {
-  padding: 15px;
+  padding: 5px;
+}
+
+#posts.row {
+  row-gap: 15px;
+  justify-content: center;
 }
 
 .item.photography a.portfolio-item {
   display: block !important;
-  width: 100% !important;
+  width: 85% !important;
+  margin: 0 auto !important;
   border-radius: 50% !important;
   overflow: hidden !important;
   position: relative !important;
@@ -1979,8 +1985,28 @@ figure.dotted-bg {
   color: #000;
 }
 
-#posts.row {
-  justify-content: center;
+/* Placeholder circles */
+img.circle-placeholder {
+  width: 100% !important;
+  height: 100% !important;
+  border-radius: 50% !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  object-fit: cover !important;
+}
+
+.placeholder-circle .overlay {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.placeholder-circle .overlay:before {
+  background: transparent !important;
+}
+
+.placeholder-circle .portfolio-item-content h3 {
+  color: #333 !important;
 }
 
 /* Photo carousel turnstile */
@@ -2047,7 +2073,19 @@ figure.dotted-bg {
 .site-subtitle {
   font-size: 14px;
   color: #000;
-  margin-top: 5px;
+  margin-top: 25px;
+}
+
+/* Header spacing to match reference */
+.site-nav {
+  position: relative;
+  padding-top: 30px;
+  padding-bottom: 0;
+}
+
+.site-nav .logo {
+  font-size: 24px;
+  font-weight: 700;
 }
 
 .carousel-prev {
@@ -2058,4 +2096,47 @@ figure.dotted-bg {
   right: 30px;
 }
 
+/* Mobile responsive - vertical scroll gallery */
+@media (max-width: 768px) {
+  .photo-carousel-section {
+    padding-top: 80px;
+    padding-left: 15px;
+    padding-right: 15px;
+    overflow: visible;
+  }
+  
+  /* Hide carousel nav buttons on mobile */
+  .carousel-nav-btn {
+    display: none;
+  }
+  
+  /* Convert carousel to vertical stack on mobile */
+  .photo-carousel.owl-carousel .owl-stage {
+    display: flex;
+    flex-direction: column;
+    transform: none !important;
+    width: 100% !important;
+  }
+  
+  .photo-carousel.owl-carousel .owl-stage-outer {
+    overflow: visible;
+  }
+  
+  .photo-carousel.owl-carousel .owl-item {
+    width: 100% !important;
+    margin-bottom: 20px;
+  }
+  
+  .photo-carousel .carousel-item-photo {
+    height: auto;
+    width: 100%;
+    margin-bottom: 30px;
+  }
+  
+  .photo-carousel .carousel-item-photo img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+}
 

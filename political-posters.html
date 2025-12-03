@@ -57,13 +57,19 @@
     <button class="carousel-nav-btn carousel-next">&#10095;</button>
     <div class="owl-carousel photo-carousel">
       <div class="carousel-item-photo">
-        <img src="images/44/THESIS.jpg" alt="THESIS">
+        <a href="images/44/THESIS.jpg" data-fancybox="gallery">
+          <img src="images/44/THESIS.jpg" alt="THESIS">
+        </a>
       </div>
       <div class="carousel-item-photo">
-        <img src="images/44/THESIS 11.jpg" alt="THESIS 11">
+        <a href="images/44/THESIS 11.jpg" data-fancybox="gallery">
+          <img src="images/44/THESIS 11.jpg" alt="THESIS 11">
+        </a>
       </div>
       <div class="carousel-item-photo">
-        <img src="images/44/THESIS 22.jpg" alt="THESIS 22">
+        <a href="images/44/THESIS 22.jpg" data-fancybox="gallery">
+          <img src="images/44/THESIS 22.jpg" alt="THESIS 22">
+        </a>
       </div>
     </div>
   </div>
@@ -95,26 +101,33 @@
   
   <script>
     $(document).ready(function(){
-      var owl = $('.photo-carousel').owlCarousel({
-        loop: false,
-        margin: 20,
-        nav: false,
-        dots: false,
-        autoWidth: true,
-        items: 4,
-        mouseDrag: false,
-        touchDrag: false,
-        pullDrag: false,
-        rewind: false
-      });
+      var isMobile = window.innerWidth <= 768;
       
-      $('.carousel-next').click(function() {
-        owl.trigger('next.owl.carousel');
-      });
-      
-      $('.carousel-prev').click(function() {
-        owl.trigger('prev.owl.carousel');
-      });
+      if (isMobile) {
+        // Disable carousel on mobile - use vertical scroll instead
+        $('.photo-carousel').removeClass('owl-carousel');
+      } else {
+        var owl = $('.photo-carousel').owlCarousel({
+          loop: false,
+          margin: 20,
+          nav: false,
+          dots: false,
+          autoWidth: true,
+          items: 4,
+          mouseDrag: false,
+          touchDrag: false,
+          pullDrag: false,
+          rewind: false
+        });
+        
+        $('.carousel-next').click(function() {
+          owl.trigger('next.owl.carousel');
+        });
+        
+        $('.carousel-prev').click(function() {
+          owl.trigger('prev.owl.carousel');
+        });
+      }
     });
   </script>
   

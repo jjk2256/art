@@ -57,28 +57,44 @@
     <button class="carousel-nav-btn carousel-next grey-arrows">&#10095;</button>
     <div class="owl-carousel photo-carousel">
       <div class="carousel-item-photo">
-        <img src="images/11/Ads at a train station.jpg" alt="Ads at a train station">
+        <a href="images/11/Ads at a train station.jpg" data-fancybox="gallery">
+          <img src="images/11/Ads at a train station.jpg" alt="Ads at a train station">
+        </a>
       </div>
       <div class="carousel-item-photo">
-        <img src="images/11/Interlaced.jpg" alt="Interlaced">
+        <a href="images/11/Interlaced.jpg" data-fancybox="gallery">
+          <img src="images/11/Interlaced.jpg" alt="Interlaced">
+        </a>
       </div>
       <div class="carousel-item-photo">
-        <img src="images/11/Lit.jpg" alt="Lit">
+        <a href="images/11/Lit.jpg" data-fancybox="gallery">
+          <img src="images/11/Lit.jpg" alt="Lit">
+        </a>
       </div>
       <div class="carousel-item-photo">
-        <img src="images/11/Pet Architecture.jpg" alt="Pet Architecture">
+        <a href="images/11/Pet Architecture.jpg" data-fancybox="gallery">
+          <img src="images/11/Pet Architecture.jpg" alt="Pet Architecture">
+        </a>
       </div>
       <div class="carousel-item-photo">
-        <img src="images/11/Rainy Night.jpg" alt="Rainy Night">
+        <a href="images/11/Rainy Night.jpg" data-fancybox="gallery">
+          <img src="images/11/Rainy Night.jpg" alt="Rainy Night">
+        </a>
       </div>
       <div class="carousel-item-photo">
-        <img src="images/11/Stacked.jpg" alt="Stacked">
+        <a href="images/11/Stacked.jpg" data-fancybox="gallery">
+          <img src="images/11/Stacked.jpg" alt="Stacked">
+        </a>
       </div>
       <div class="carousel-item-photo">
-        <img src="images/11/Untitlted.jpg" alt="Untitled">
+        <a href="images/11/Untitlted.jpg" data-fancybox="gallery">
+          <img src="images/11/Untitlted.jpg" alt="Untitled">
+        </a>
       </div>
       <div class="carousel-item-photo">
-        <img src="images/11/White space.jpg" alt="White space">
+        <a href="images/11/White space.jpg" data-fancybox="gallery">
+          <img src="images/11/White space.jpg" alt="White space">
+        </a>
       </div>
     </div>
   </div>
@@ -110,26 +126,33 @@
   
   <script>
     $(document).ready(function(){
-      var owl = $('.photo-carousel').owlCarousel({
-        loop: false,
-        margin: 20,
-        nav: false,
-        dots: false,
-        autoWidth: true,
-        items: 4,
-        mouseDrag: false,
-        touchDrag: false,
-        pullDrag: false,
-        rewind: false
-      });
+      var isMobile = window.innerWidth <= 768;
       
-      $('.carousel-next').click(function() {
-        owl.trigger('next.owl.carousel');
-      });
-      
-      $('.carousel-prev').click(function() {
-        owl.trigger('prev.owl.carousel');
-      });
+      if (isMobile) {
+        // Disable carousel on mobile - use vertical scroll instead
+        $('.photo-carousel').removeClass('owl-carousel');
+      } else {
+        var owl = $('.photo-carousel').owlCarousel({
+          loop: false,
+          margin: 20,
+          nav: false,
+          dots: false,
+          autoWidth: true,
+          items: 4,
+          mouseDrag: false,
+          touchDrag: false,
+          pullDrag: false,
+          rewind: false
+        });
+        
+        $('.carousel-next').click(function() {
+          owl.trigger('next.owl.carousel');
+        });
+        
+        $('.carousel-prev').click(function() {
+          owl.trigger('prev.owl.carousel');
+        });
+      }
     });
   </script>
   

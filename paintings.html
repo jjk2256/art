@@ -57,10 +57,14 @@
     <button class="carousel-nav-btn carousel-next">&#10095;</button>
     <div class="owl-carousel photo-carousel">
       <div class="carousel-item-photo">
-        <img src="images/55/STILL-LIFE OIL.jpg" alt="Still-Life Oil">
+        <a href="images/55/STILL-LIFE OIL.jpg" data-fancybox="gallery">
+          <img src="images/55/STILL-LIFE OIL.jpg" alt="Still-Life Oil">
+        </a>
       </div>
       <div class="carousel-item-photo">
-        <img src="images/55/WATER COLOR.jpg" alt="Water Color">
+        <a href="images/55/WATER COLOR.jpg" data-fancybox="gallery">
+          <img src="images/55/WATER COLOR.jpg" alt="Water Color">
+        </a>
       </div>
     </div>
   </div>
@@ -92,26 +96,33 @@
   
   <script>
     $(document).ready(function(){
-      var owl = $('.photo-carousel').owlCarousel({
-        loop: false,
-        margin: 20,
-        nav: false,
-        dots: false,
-        autoWidth: true,
-        items: 4,
-        mouseDrag: false,
-        touchDrag: false,
-        pullDrag: false,
-        rewind: false
-      });
+      var isMobile = window.innerWidth <= 768;
       
-      $('.carousel-next').click(function() {
-        owl.trigger('next.owl.carousel');
-      });
-      
-      $('.carousel-prev').click(function() {
-        owl.trigger('prev.owl.carousel');
-      });
+      if (isMobile) {
+        // Disable carousel on mobile - use vertical scroll instead
+        $('.photo-carousel').removeClass('owl-carousel');
+      } else {
+        var owl = $('.photo-carousel').owlCarousel({
+          loop: false,
+          margin: 20,
+          nav: false,
+          dots: false,
+          autoWidth: true,
+          items: 4,
+          mouseDrag: false,
+          touchDrag: false,
+          pullDrag: false,
+          rewind: false
+        });
+        
+        $('.carousel-next').click(function() {
+          owl.trigger('next.owl.carousel');
+        });
+        
+        $('.carousel-prev').click(function() {
+          owl.trigger('prev.owl.carousel');
+        });
+      }
     });
   </script>
   

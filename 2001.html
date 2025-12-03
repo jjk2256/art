@@ -57,49 +57,79 @@
     <button class="carousel-nav-btn carousel-next">&#10095;</button>
     <div class="owl-carousel photo-carousel">
       <div class="carousel-item-photo">
-        <img src="images/22/WAITING.jpg" alt="WAITING">
+        <a href="images/22/WAITING.jpg" data-fancybox="gallery">
+          <img src="images/22/WAITING.jpg" alt="WAITING">
+        </a>
       </div>
       <div class="carousel-item-photo">
-        <img src="images/22/WAITING 00.jpg" alt="WAITING 00">
+        <a href="images/22/WAITING 00.jpg" data-fancybox="gallery">
+          <img src="images/22/WAITING 00.jpg" alt="WAITING 00">
+        </a>
       </div>
       <div class="carousel-item-photo">
-        <img src="images/22/WAITING 11.jpg" alt="WAITING 11">
+        <a href="images/22/WAITING 11.jpg" data-fancybox="gallery">
+          <img src="images/22/WAITING 11.jpg" alt="WAITING 11">
+        </a>
       </div>
       <div class="carousel-item-photo">
-        <img src="images/22/WAITING 22.jpg" alt="WAITING 22">
+        <a href="images/22/WAITING 22.jpg" data-fancybox="gallery">
+          <img src="images/22/WAITING 22.jpg" alt="WAITING 22">
+        </a>
       </div>
       <div class="carousel-item-photo">
-        <img src="images/22/WAITING 33.jpg" alt="WAITING 33">
+        <a href="images/22/WAITING 33.jpg" data-fancybox="gallery">
+          <img src="images/22/WAITING 33.jpg" alt="WAITING 33">
+        </a>
       </div>
       <div class="carousel-item-photo">
-        <img src="images/22/WAITING 44.jpg" alt="WAITING 44">
+        <a href="images/22/WAITING 44.jpg" data-fancybox="gallery">
+          <img src="images/22/WAITING 44.jpg" alt="WAITING 44">
+        </a>
       </div>
       <div class="carousel-item-photo">
-        <img src="images/22/WAITING 55.jpg" alt="WAITING 55">
+        <a href="images/22/WAITING 55.jpg" data-fancybox="gallery">
+          <img src="images/22/WAITING 55.jpg" alt="WAITING 55">
+        </a>
       </div>
       <div class="carousel-item-photo">
-        <img src="images/22/WAITING 66.jpg" alt="WAITING 66">
+        <a href="images/22/WAITING 66.jpg" data-fancybox="gallery">
+          <img src="images/22/WAITING 66.jpg" alt="WAITING 66">
+        </a>
       </div>
       <div class="carousel-item-photo">
-        <img src="images/22/WAITING 77.jpg" alt="WAITING 77">
+        <a href="images/22/WAITING 77.jpg" data-fancybox="gallery">
+          <img src="images/22/WAITING 77.jpg" alt="WAITING 77">
+        </a>
       </div>
       <div class="carousel-item-photo">
-        <img src="images/22/WAITING 88.jpg" alt="WAITING 88">
+        <a href="images/22/WAITING 88.jpg" data-fancybox="gallery">
+          <img src="images/22/WAITING 88.jpg" alt="WAITING 88">
+        </a>
       </div>
       <div class="carousel-item-photo">
-        <img src="images/22/WAITING 99.jpg" alt="WAITING 99">
+        <a href="images/22/WAITING 99.jpg" data-fancybox="gallery">
+          <img src="images/22/WAITING 99.jpg" alt="WAITING 99">
+        </a>
       </div>
       <div class="carousel-item-photo">
-        <img src="images/22/WAITING 101.jpg" alt="WAITING 101">
+        <a href="images/22/WAITING 101.jpg" data-fancybox="gallery">
+          <img src="images/22/WAITING 101.jpg" alt="WAITING 101">
+        </a>
       </div>
       <div class="carousel-item-photo">
-        <img src="images/22/WAITING 111.jpg" alt="WAITING 111">
+        <a href="images/22/WAITING 111.jpg" data-fancybox="gallery">
+          <img src="images/22/WAITING 111.jpg" alt="WAITING 111">
+        </a>
       </div>
       <div class="carousel-item-photo">
-        <img src="images/22/WAITING 122.jpg" alt="WAITING 122">
+        <a href="images/22/WAITING 122.jpg" data-fancybox="gallery">
+          <img src="images/22/WAITING 122.jpg" alt="WAITING 122">
+        </a>
       </div>
       <div class="carousel-item-photo">
-        <img src="images/22/WAITING 133.jpg" alt="WAITING 133">
+        <a href="images/22/WAITING 133.jpg" data-fancybox="gallery">
+          <img src="images/22/WAITING 133.jpg" alt="WAITING 133">
+        </a>
       </div>
     </div>
   </div>
@@ -131,26 +161,33 @@
   
   <script>
     $(document).ready(function(){
-      var owl = $('.photo-carousel').owlCarousel({
-        loop: false,
-        margin: 20,
-        nav: false,
-        dots: false,
-        autoWidth: true,
-        items: 4,
-        mouseDrag: false,
-        touchDrag: false,
-        pullDrag: false,
-        rewind: false
-      });
+      var isMobile = window.innerWidth <= 768;
       
-      $('.carousel-next').click(function() {
-        owl.trigger('next.owl.carousel');
-      });
-      
-      $('.carousel-prev').click(function() {
-        owl.trigger('prev.owl.carousel');
-      });
+      if (isMobile) {
+        // Disable carousel on mobile - use vertical scroll instead
+        $('.photo-carousel').removeClass('owl-carousel');
+      } else {
+        var owl = $('.photo-carousel').owlCarousel({
+          loop: false,
+          margin: 20,
+          nav: false,
+          dots: false,
+          autoWidth: true,
+          items: 4,
+          mouseDrag: false,
+          touchDrag: false,
+          pullDrag: false,
+          rewind: false
+        });
+        
+        $('.carousel-next').click(function() {
+          owl.trigger('next.owl.carousel');
+        });
+        
+        $('.carousel-prev').click(function() {
+          owl.trigger('prev.owl.carousel');
+        });
+      }
     });
   </script>
   
